@@ -2,15 +2,11 @@
 
 A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+1. Onboarding & Splash Screens: Introduces the app with a visually appealing start and walkthrough for new users.
+2. Home & Product Pages: Displays products in a clean grid or list view with detailed product pages showcasing product images, prices, descriptions, and ratings.
+3. Search & Filters: Helps users filter and search products by categories, prices, or brands.
+4. Cart & Checkout: Provides a user-friendly interface for adding products to the cart, reviewing orders, and completing the payment process.
+5. Profile & Account Settings: Allows users to manage their accounts, orders, and wishlists efficiently.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
