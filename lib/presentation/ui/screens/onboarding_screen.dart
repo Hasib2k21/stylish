@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stylish/presentation/ui/screens/auth/login_screen.dart';
+
+import '../utils/onboard_demo_data.dart';
+import '../widget/onborading/dot_indicator.dart';
+import '../widget/onborading/on_board_content.dart';
 
 class OnboardingController extends GetxController {
   var currentPage = 0.obs;
@@ -44,7 +49,7 @@ class OnboardingScreen extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       // Skip logic
-                      Get.to(() => const NextPage());
+                      Get.to(() => const LoginScreen());
                     },
                     child: const Text(
                       "Skip",
@@ -117,7 +122,7 @@ class OnboardingScreen extends StatelessWidget {
                         return TextButton(
                           onPressed: () {
                             if (ctrl.isLastPage) {
-                              Get.to(() => const NextPage());
+                              Get.to(() => const LoginScreen());
                             } else {
                               ctrl.changePage(ctrl.currentPage.value + 1);
                             }
@@ -143,110 +148,10 @@ class OnboardingScreen extends StatelessWidget {
   }
 }
 
-class OnboardContent extends StatelessWidget {
-  const OnboardContent({
-    super.key,
-    required this.illustration,
-    required this.title,
-    required this.text,
-  });
 
-  final String? illustration, title, text;
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 1,
-            height: 300,
-            child: Image.asset(
-              illustration ?? '',
-              fit: BoxFit.scaleDown,
-            ),
-          ),
-          Text(
-            title ?? '',
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 10), // Adjust space between title and text
-          Text(
-            text ?? '',
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: Colors.grey,
-                  height: 1.5,
-                ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 70),
-        ],
-      ),
-    );
-  }
-}
 
-class DotIndicator extends StatelessWidget {
-  const DotIndicator({
-    super.key,
-    this.isActive = false,
-  });
 
-  final bool isActive;
 
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 250),
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      height: 8,
-      width: isActive ? 16 : 8,
-      decoration: BoxDecoration(
-        color: isActive ? Colors.black : Colors.grey.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(4),
-      ),
-    );
-  }
-}
 
-List<Map<String, dynamic>> demoData = [
-  {
-    "illustration": "assets/images/img.png",
-    "title": "Choose Products",
-    "text":
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-  },
-  {
-    "illustration": "assets/images/img_1.png",
-    "title": "Make Payment",
-    "text":
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-  },
-  {
-    "illustration": "assets/images/img_2.png",
-    "title": "Get Your Order",
-    "text":
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-  },
-];
 
-class NextPage extends StatelessWidget {
-  const NextPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Next Page')),
-      body: const Center(
-        child: Text('You are on the next page now!'),
-      ),
-    );
-  }
-}
