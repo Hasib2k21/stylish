@@ -20,7 +20,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   Get.find<BottomNavbarController>();
 
   final List<Widget> _screen = [
-    const HomeScreen(),
+    HomeScreen(),
     const WishListScreen(),
     const CartScreen(),
     const SearchScreen(),

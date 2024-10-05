@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:stylish/presentation/ui/utils/all_featured_list.dart';
 
 class AllFeaturedCard extends StatelessWidget {
-  final String imageUrl;
-  final String label;
-
   const AllFeaturedCard({
-    super.key,
-    required this.imageUrl,
-    required this.label,
+    super.key, required this.item,
   });
-
+ final FeaturedItem item;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,8 +17,8 @@ class AllFeaturedCard extends StatelessWidget {
             height: 80,
             decoration: ShapeDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                  imageUrl,
+                image: NetworkImage(
+                  item.imageUrl,
                 ),
                 fit: BoxFit.fill,
               ),
@@ -31,7 +27,7 @@ class AllFeaturedCard extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            label,
+            item.label,
             style: const TextStyle(
               color: Colors.black,
             ),
